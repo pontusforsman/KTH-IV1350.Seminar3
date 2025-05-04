@@ -14,6 +14,7 @@ public class InventoryRegistry {
 
     /**
      * Package-private constructor, used only by {@link RegistryCreator}.
+     * Initializes inventory.
      */
     InventoryRegistry() {
         initializeInventory();
@@ -69,7 +70,6 @@ public class InventoryRegistry {
     public void updateInventory(SaleDTO saleDTO) {
         System.out.printf("[%s]: Inventory updated.%n", this.getClass().getSimpleName().toUpperCase());
     }
-
 
     /**
      * Represents a database item, including its ID, name, description, price, VAT rate, and quantity.
