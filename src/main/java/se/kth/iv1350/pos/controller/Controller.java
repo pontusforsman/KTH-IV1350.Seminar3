@@ -32,32 +32,19 @@ public class Controller {
     private Sale currentSale;
 
     /**
-     * Creates a new <code>Controller</code> instance, with the given <code>RegistryCreator</code> and {@link Printer}.
-     *
-     * @param registryCreator Used to get access to external systems.
-     * @param printer Used to print the {@link Receipt}.
-     *
-     * @see RegistryCreator
-     */
-    public Controller(RegistryCreator registryCreator, Printer printer) {
-        this(registryCreator, printer, new CashRegister());
-    }
-
-    /**
      * Creates a new <code>Controller</code> instance, with the given <code>RegistryCreator</code>, {@link Printer}, and {@link CashRegister}.
      * This constructor is intended for testing purposes.
      *
      * @param registryCreator Used to get access to external systems.
      * @param printer Used to print the {@link Receipt}.
-     * @param cashRegister The cash register to use.
      */
-    public Controller(RegistryCreator registryCreator, Printer printer, CashRegister cashRegister) {
+    public Controller(RegistryCreator registryCreator, Printer printer) {
         inventoryRegistry = registryCreator.getInventoryRegistry();
         accountingRegistry = registryCreator.getAccountingRegistry();
         this.printer = printer;
-        this.cashRegister = cashRegister;
+        this.cashRegister = new CashRegister();
     }
-    
+
     /**
      * Starts a new <code>Sale</code>.
      *
@@ -70,9 +57,6 @@ public class Controller {
     
     /**
      * Adds an item to the current <code>Sale</code>.
-     * Checks if the item exists in the inventory.
-     * If the item is not found, or if no sale is started, it returns <code>null</code>.
-     * Otherwise, tells the <code>Sale</code> to add the item.
      *
      * @param itemID The <code>String</code> ID of the item to add.
      * @return Information about the added item as a {@link SaleItemDTO},
