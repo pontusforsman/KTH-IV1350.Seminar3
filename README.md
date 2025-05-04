@@ -10,4 +10,4 @@
 - Limited use of design patterns
 - No use of exceptions
 
-See REQUIREMENTS.md for the requirements of the system.
+See [Requirements](REQUIREMENTS.md)REQUIREMENTS.md for the requirements of the system.
