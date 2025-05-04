@@ -42,6 +42,7 @@ public class CashPaymentTest {
     public void testCalculateTotalCost() {
         cashPayment.calculateTotalCost(sale);
         Amount expectedChange = Amount.of(50); // 150 - 100
+        assertNotNull(expectedChange);
         assertEquals(expectedChange.getValue(), cashPayment.getAmountPaid().getValue(),
                 "Change was not correctly calculated in calculateTotalCost().");
     }

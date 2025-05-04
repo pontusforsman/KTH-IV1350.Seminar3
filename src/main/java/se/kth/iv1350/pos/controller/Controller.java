@@ -105,7 +105,7 @@ public class Controller {
             return null;
         }
         Amount change = currentSale.pay(amountPaid);
-        cashRegister.updateBalance(amountPaid.subtract(change));
+
         updateRegistries();
         printReceipt();
         return change;
