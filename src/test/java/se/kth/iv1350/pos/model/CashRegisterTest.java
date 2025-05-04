@@ -1,6 +1,7 @@
 package se.kth.iv1350.pos.model;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,6 +37,7 @@ public class CashRegisterTest {
         Amount initialBalance = cashRegister.getBalance();
         Amount amountToAdd = Amount.of(200);
         cashRegister.updateBalance(amountToAdd);
+        Assertions.assertNotNull(amountToAdd);
         Amount expectedBalance = initialBalance.add(amountToAdd);
         Amount actualBalance = cashRegister.getBalance();
         assertEquals(expectedBalance.getValue(), actualBalance.getValue(),

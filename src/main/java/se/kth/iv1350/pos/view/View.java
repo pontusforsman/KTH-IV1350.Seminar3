@@ -3,9 +3,6 @@ package se.kth.iv1350.pos.view;
 import se.kth.iv1350.pos.controller.Controller;
 import se.kth.iv1350.pos.model.Amount;
 import se.kth.iv1350.pos.model.SaleItemDTO;
-
-import java.io.PrintStream;
-
 /**
  * Simulated user interface for the POS system. This class is intended for demonstration and testing purposes only.
  * It makes hardcoded calls to the {@link Controller} and prints all output to a configurable output stream (default is System.out).

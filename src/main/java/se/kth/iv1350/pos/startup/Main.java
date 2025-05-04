@@ -5,8 +5,6 @@ import se.kth.iv1350.pos.integration.Printer;
 import se.kth.iv1350.pos.integration.RegistryCreator;
 import se.kth.iv1350.pos.view.View;
 
-import java.io.PrintStream;
-
 /**
  * Entry point for the Point of Sale (POS) application.
  * Initializes the system and starts the user interface.
