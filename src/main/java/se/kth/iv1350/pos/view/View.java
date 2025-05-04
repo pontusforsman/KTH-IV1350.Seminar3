@@ -7,9 +7,9 @@ import java.io.PrintStream;
 
 /**
  * Simulated user interface for the POS system. This class is intended for demonstration and testing purposes only.
- * It makes hardcoded calls to the {@link se.kth.iv1350.pos.controller.Controller} and prints all output to a configurable output stream (default is System.out).
+ * It makes hardcoded calls to the {@link Controller} and prints all output to a configurable output stream (default is System.out).
  * <p>
- * This class represents the <code>View</code> layer in the application and is not intended for production use.
+ * This class represents the <code>View</code> layer in the application.
  */
 public class View {
     private static final String ADD_ITEM_MSG = "Add 1 item with item id ";
