@@ -9,7 +9,7 @@ public class CashPayment {
 
     /**
      * Creates a new instance representing a payment with the specified {@link Amount}.
-     * 
+     *
      * @param amountPaid The amount of money paid.
      */
     public CashPayment(Amount amountPaid) {
@@ -18,7 +18,7 @@ public class CashPayment {
 
     /**
      * Gets the <code>Amount</code> paid.
-     * 
+     *
      * @return The amount paid, or null if the payment was invalid.
      */
     public Amount getAmountPaid() {
@@ -29,7 +29,7 @@ public class CashPayment {
      * Calculates and updates the internal state with the difference between
      * the amount paid and the total cost of the sale.
      * If amountPaid is null, does nothing.
-     * 
+     *
      * @param sale The sale for which payment is being made.
      */
     public void calculateTotalCost(Sale sale) {

@@ -3,10 +3,11 @@ package se.kth.iv1350.pos.controller;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import se.kth.iv1350.pos.integration.RegistryCreator;
 import se.kth.iv1350.pos.integration.Printer;
+import se.kth.iv1350.pos.integration.RegistryCreator;
 import se.kth.iv1350.pos.model.Amount;
 import se.kth.iv1350.pos.model.SaleItemDTO;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

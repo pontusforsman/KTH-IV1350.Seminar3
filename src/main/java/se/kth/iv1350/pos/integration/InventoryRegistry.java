@@ -1,8 +1,9 @@
 package se.kth.iv1350.pos.integration;
 
-import java.util.Map;
-import java.util.HashMap;
 import se.kth.iv1350.pos.model.SaleDTO;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Simulates an external inventory system, storing and retrieving item data.
@@ -36,7 +37,7 @@ public class InventoryRegistry {
      * Updates the quantity of an item in the inventory.
      * If the item ID is invalid, the quantity is negative, or the item is not found, this method does nothing.
      *
-     * @param itemID The ID of the item to update.
+     * @param itemID   The ID of the item to update.
      * @param quantity The new quantity to set (must be non-negative).
      */
     public void updateQuantity(String itemID, int quantity) {
@@ -62,6 +63,7 @@ public class InventoryRegistry {
     /**
      * Updates the inventory system with the completed sale data.
      * Currently, does not perform any actual operations.
+     *
      * @param saleDTO The <code>SaleDTO</code> containing sale information.
      */
     public void updateInventory(SaleDTO saleDTO) {
@@ -88,6 +90,7 @@ public class InventoryRegistry {
             this.vatRate = vatRate;
             this.quantity = 0;
         }
+
         private ItemData(String itemID, String name, String description, double price, double vatRate, int quantity) {
             this.itemID = itemID;
             this.name = name;
@@ -100,9 +103,10 @@ public class InventoryRegistry {
         private ItemDTO toDTO() {
             return new ItemDTO(itemID, name, description, price, vatRate);
         }
+
         void updateQuantity(int quantity) {
             this.quantity = quantity;
         }
     }
-    
+
 } 

@@ -3,6 +3,7 @@ package se.kth.iv1350.pos.view;
 import se.kth.iv1350.pos.controller.Controller;
 import se.kth.iv1350.pos.model.Amount;
 import se.kth.iv1350.pos.model.SaleItemDTO;
+
 import java.io.PrintStream;
 
 /**
@@ -21,22 +22,15 @@ public class View {
     private static final String CHANGE_MSG = "Change: %s";
 
     private final Controller controller;
-    private final PrintStream out;
-
-    public View(Controller controller) {
-        this(controller, System.out);
-    }
-
     /**
      * Creates a View with a custom output stream (for testability).
+     *
      * @param controller The controller to use.
-     * @param out The PrintStream to output to.
      */
-    public View(Controller controller, PrintStream out) {
+    public View(Controller controller) {
         this.controller = controller;
-        this.out = out;
     }
-    
+
     /**
      * Simulates user input that drives the program execution.
      */
@@ -57,12 +51,17 @@ public class View {
     private void displayStartSale() {
         StringBuilder builder = new StringBuilder();
         boolean result = controller.startSale();
-        appendLine(builder, String.valueOf(result));
+        if (result) {
+            appendLine(builder, "Sale started.");
+        } else {
+            appendLine(builder, "Sale not started.");
+        }
         print(builder);
     }
 
     /**
      * Displays the running total with item details after adding an item to the sale.
+     *
      * @param itemID The ID of the item to add.
      */
     private void displayEnterItem(String itemID) {
@@ -80,6 +79,7 @@ public class View {
 
     /**
      * Displays the running total with item details after entering a quantity.
+     *
      * @param quantity The quantity to set.
      */
     private void displayEnterQuantity(int quantity) {
@@ -97,8 +97,9 @@ public class View {
 
     /**
      * Displays the item details and total cost.
+     *
      * @param builder The {@link StringBuilder} to append the details to.
-     * @param item The SaleItemDTO containing item details.
+     * @param item    The SaleItemDTO containing item details.
      */
     private void displayItemDetails(StringBuilder builder, SaleItemDTO item) {
         appendLine(builder, "Item ID: " + item.item().id());
@@ -126,6 +127,7 @@ public class View {
 
     /**
      * Displays the change after payment.
+     *
      * @param paymentAmount The amount paid by the customer.
      */
     private void displayChange(double paymentAmount) {
@@ -140,6 +142,7 @@ public class View {
     /**
      * Formats the amount to a string with the format "0:00 SEK".
      * Note: The colon is used instead of a decimal point to match assignment requirements.
+     *
      * @param amount The amount to format.
      * @return The formatted string.
      */
@@ -152,6 +155,7 @@ public class View {
     /**
      * Formats the price to a string with the format "0:00".
      * Note: The colon is used instead of a decimal point to match assignment requirements.
+     *
      * @param price The price to format.
      * @return The formatted string.
      */
@@ -161,17 +165,19 @@ public class View {
 
     /**
      * Formats the percentage to a string with the format "0%".
+     *
      * @param percentage The percentage to format.
      * @return The formatted string.
      */
     private String formatPercentage(double percentage) {
-        return (int)(percentage * 100) + "%";
+        return (int) (percentage * 100) + "%";
     }
 
     /**
      * Appends a line to the StringBuilder.
+     *
      * @param builder The StringBuilder to append to.
-     * @param line The line to append.
+     * @param line    The line to append.
      */
     private void appendLine(StringBuilder builder, String line) {
         builder.append(line);
@@ -180,6 +186,7 @@ public class View {
 
     /**
      * Ends the section by appending a new line.
+     *
      * @param builder The {@link StringBuilder} to append to.
      */
     private void endSection(StringBuilder builder) {
@@ -188,9 +195,10 @@ public class View {
 
     /**
      * Prints the contents of the StringBuilder to the configured output stream.
+     *
      * @param builder The StringBuilder containing the output.
      */
     private void print(StringBuilder builder) {
-        out.print(builder.toString());
+        System.out.print(builder.toString());
     }
 }

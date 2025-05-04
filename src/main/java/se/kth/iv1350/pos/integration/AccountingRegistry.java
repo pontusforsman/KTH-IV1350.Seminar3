@@ -10,7 +10,7 @@ public class AccountingRegistry {
 
     AccountingRegistry() {
     }
-    
+
     /**
      * Updates the <code>AccountingRegistry</code> system with the completed sale data.
      * This method simulates updating an external accounting system by printing a message to the console.

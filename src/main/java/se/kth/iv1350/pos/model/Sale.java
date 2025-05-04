@@ -1,8 +1,6 @@
 package se.kth.iv1350.pos.model;
 
-import se.kth.iv1350.pos.integration.AccountingRegistry;
 import se.kth.iv1350.pos.integration.ItemDTO;
-import se.kth.iv1350.pos.integration.Printer;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

@@ -8,7 +8,7 @@ import se.kth.iv1350.pos.model.Receipt;
 public class Printer {
     /**
      * Prints the specified receipt.
-     * 
+     *
      * @param receipt The receipt string to print.
      */
     public void printReceipt(String receipt) {

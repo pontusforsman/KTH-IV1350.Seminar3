@@ -1,10 +1,11 @@
 package se.kth.iv1350.pos.model;
 
+import se.kth.iv1350.pos.integration.ItemDTO;
+import se.kth.iv1350.pos.integration.Printer;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import se.kth.iv1350.pos.integration.ItemDTO;
-import se.kth.iv1350.pos.integration.Printer;
 
 /**
  * Represents a <code>Receipt</code> for a completed <code>Sale</code>, including all sale details and formatting.
@@ -18,9 +19,9 @@ public class Receipt {
     /**
      * Creates a new instance representing the receipt of the specified sale.
      *
-     * @param sale The sale proved by this receipt.
+     * @param sale       The sale proved by this receipt.
      * @param amountPaid How much was paid for the sale.
-     * @param change The amount of change returned to the customer.
+     * @param change     The amount of change returned to the customer.
      */
     public Receipt(Sale sale, Amount amountPaid, Amount change) {
         this.sale = sale;
@@ -53,13 +54,13 @@ public class Receipt {
 
     private void appendSaleItems(StringBuilder builder) {
         Map<String, SaleItem> items = sale.getItems();
-        
+
         for (SaleItem item : items.values()) {
             ItemDTO itemInfo = item.getItem();
             int quantity = item.getQuantity();
             double price = itemInfo.price();
             Amount lineTotal = item.getLineTotal();
-            
+
             appendLine(builder, itemInfo.name() + " " + quantity + " x " + formatPrice(price) + " " + formatAmount(lineTotal));
         }
         endSection(builder);
@@ -85,7 +86,7 @@ public class Receipt {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         return now.format(formatter);
     }
-    
+
     private String formatAmount(Amount amount) {
         if (amount == null) return "0:00 SEK";
         return formatPrice(amount.getValue()) + " SEK";

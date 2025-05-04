@@ -19,7 +19,7 @@ public class CashRegister {
 
     /**
      * Gets the current balance in the cash register.
-     * 
+     *
      * @return The current balance.
      */
     public Amount getBalance() {
@@ -28,7 +28,7 @@ public class CashRegister {
 
     /**
      * Updates the balance by adding the specified amount.
-     * 
+     *
      * @param amount The amount to add to the balance.
      */
     public void updateBalance(Amount amount) {

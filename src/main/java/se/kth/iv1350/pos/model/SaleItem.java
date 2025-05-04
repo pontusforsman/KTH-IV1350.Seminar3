@@ -14,8 +14,10 @@ public class SaleItem {
         this.item = item;
         this.quantity = quantity;
     }
+
     /**
      * Updates the quantity of this item in the sale. Negative quantities are ignored.
+     *
      * @param quantity The quantity to add (must be non-negative).
      */
     void updateQuantity(int quantity) {
@@ -27,6 +29,7 @@ public class SaleItem {
 
     /**
      * Gets the item data.
+     *
      * @return The {@link ItemDTO} for this sale item.
      */
     public ItemDTO getItem() {
@@ -35,23 +38,26 @@ public class SaleItem {
 
     /**
      * Gets the quantity of this item in the sale.
+     *
      * @return The quantity.
      */
     public int getQuantity() {
         return quantity;
     }
-    
+
     /**
      * Gets the line total (price × quantity), assuming price already includes VAT.
+     *
      * @return The total amount for this item line.
      */
     public Amount getLineTotal() {
         double itemPrice = item.price();
         return Amount.of(itemPrice * quantity);
     }
-    
+
     /**
      * Gets the total VAT for this item line.
+     *
      * @return The VAT amount for this item line.
      */
     public Amount getLineTotalVat() {
@@ -59,9 +65,10 @@ public class SaleItem {
         double vatRate = item.vatRate();
         return Amount.of(itemPrice * vatRate * quantity / (1 + vatRate)); // Extract VAT from VAT-included price
     }
-    
+
     /**
      * Converts this sale item to a DTO for transfer between layers.
+     *
      * @return The {@link SaleItemDTO} representing this item.
      */
     public SaleItemDTO toDTO() {
