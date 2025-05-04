@@ -6,4 +6,8 @@
 - Model View Controller (MVC) architecture.
 - Layered architecture.
 
-See REQUIREMENTS.md for the requirements of the system.
+## Restrictions
+- Limited use of design patterns
+- No use of exceptions
+
+See [Requirements](REQUIREMENTS.md) for the requirements of the system.
