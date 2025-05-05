@@ -99,10 +99,6 @@ public class InventoryRegistry {
         private void updateQuantity(int quantity) {
             this.quantity = quantity;
         }
-
-        public int quantity() {
-            return quantity;
-        }
     }
 
 } 
