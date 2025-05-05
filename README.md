@@ -76,8 +76,8 @@ Item cost: 30:00 SEK
 VAT: 12%
 Item description: Free-range eggs
 
-Total cost (incl VAT): 90:00 SEK
-Total VAT: 9:64 SEK
+Total cost (incl VAT): 110:00 SEK
+Total VAT: 10:77 SEK
 
 End sale:
 Total cost (incl VAT): 110:00 SEK
@@ -85,7 +85,7 @@ Total cost (incl VAT): 110:00 SEK
 [ACCOUNTINGREGISTRY]: Accounting updated. Total revenue: 110.00
 [INVENTORYREGISTRY]: Inventory updated.
 ------------------- Begin receipt -------------------
-Time of Sale: 2025-05-05 12:31
+Time of Sale: 2025-05-05 18:24
 
 Newspaper 1 x 20:00 20:00 SEK
 Egg 3 x 30:00 90:00 SEK
