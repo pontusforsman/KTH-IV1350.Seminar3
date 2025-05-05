@@ -67,7 +67,7 @@ public class Controller {
         if (currentSale == null) {
             return null;
         }
-        return currentSale.addQuantity(quantity);
+        return currentSale.updateQuantity(quantity);
     }
 
     /**

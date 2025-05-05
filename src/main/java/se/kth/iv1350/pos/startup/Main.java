@@ -8,12 +8,12 @@ import se.kth.iv1350.pos.view.View;
 /**
  * Entry point for the Point of Sale (POS) application.
  * Initializes the system and starts the user interface.
- *
  */
 public class Main {
 
     /**
      * Starts the application.
+     *
      * @param args Command line arguments, not used in this application.
      */
     public static void main(String[] args) {

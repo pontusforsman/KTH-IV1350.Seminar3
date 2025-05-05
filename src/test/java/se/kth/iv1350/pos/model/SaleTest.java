@@ -74,7 +74,7 @@ public class SaleTest {
     public void testAddZeroQuantity() {
         ItemDTO testItem = new ItemDTO("test1", "Test Item", "Test Description", 100.0, 0.0);
         sale.addItem(testItem);
-        sale.addQuantity(0);
+        sale.updateQuantity(0);
         assertEquals(100.0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
     }
 
@@ -85,7 +85,7 @@ public class SaleTest {
     public void testAddNegativeQuantity() {
         ItemDTO testItem = new ItemDTO("test1", "Test Item", "Test Description", 100.0, 0.0);
         sale.addItem(testItem);
-        sale.addQuantity(-2); // Should not allow
+        sale.updateQuantity(-2); // Should not allow
         assertEquals(100.0, sale.getTotalCost().getValue(), 0.001, "Total should not change after negative quantity.");
     }
 
@@ -107,11 +107,11 @@ public class SaleTest {
     }
 
     @Test
-    public void addQuantity_shouldReturnNullIfNoItems() {
+    public void updateQuantity_shouldReturnNullIfNoItems() {
         Sale sale = new Sale(new CashRegister());
         ItemDTO testItem = new ItemDTO("test1", "Test Item", "Test Description", 100.0, 0.0);
         sale.addItem(testItem);
-        sale.addQuantity(0);
+        sale.updateQuantity(0);
         assertEquals(100.0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
     }
 } 

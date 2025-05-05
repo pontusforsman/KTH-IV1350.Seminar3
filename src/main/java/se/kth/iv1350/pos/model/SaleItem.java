@@ -24,7 +24,7 @@ public class SaleItem {
         if (quantity < 0) {
             return;
         }
-        this.quantity += quantity;
+        this.quantity = quantity;
     }
 
     /**

@@ -55,7 +55,7 @@ public class Sale {
      * @param quantity The <code>int</code> quantity to add.
      * @return A {@link SaleItemDTO} with updated sale information, or <code>null</code> if there are no items in the sale or the quantity is invalid.
      */
-    public SaleItemDTO addQuantity(int quantity) {
+    public SaleItemDTO updateQuantity(int quantity) {
         if (items.isEmpty() || items.lastEntry() == null) {
             return null;
         }
