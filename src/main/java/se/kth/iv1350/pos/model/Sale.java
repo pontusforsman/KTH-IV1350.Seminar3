@@ -39,7 +39,7 @@ public class Sale {
      */
     public SaleItemDTO addItem(ItemDTO item) {
         if (items.containsKey(item.id())) {
-            items.get(item.id()).updateQuantity(1);
+            items.get(item.id()).incrementQuantity();
         } else {
             items.put(item.id(), new SaleItem(item, 1));
         }
@@ -59,14 +59,18 @@ public class Sale {
         if (items.isEmpty() || items.lastEntry() == null) {
             return null;
         }
-        if (items.lastEntry().getValue().getQuantity() + quantity < 0) {
+        if (quantity < 0) {
             return null;
         }
-        items.lastEntry().getValue().updateQuantity(quantity);
-
+        var lastEntry = items.lastEntry();
+        if (quantity == 0) {
+            items.remove(lastEntry.getKey());
+            updateRunningTotal();
+            return null;
+        }
+        lastEntry.getValue().updateQuantity(quantity);
         updateRunningTotal();
-
-        return items.lastEntry().getValue().toDTO();
+        return new SaleItemDTO(lastEntry.getValue().getItem(), lastEntry.getValue().getQuantity(), total, totalVat);
     }
 
     private void updateRunningTotal() {
@@ -139,7 +143,7 @@ public class Sale {
      *
      * @return An unmodifiable map of item IDs to {@link SaleItem}.
      */
-    public Map<String, SaleItem> getItems() {
+    Map<String, SaleItem> getItems() {
         return Collections.unmodifiableMap(items);
     }
 
@@ -150,6 +154,7 @@ public class Sale {
      */
     public SaleDTO toDTO() {
         List<SaleItemDTO> itemDTOs = items.values().stream().map(SaleItem::toDTO).toList();
+
         return new SaleDTO(itemDTOs, total, totalVat);
     }
 } 

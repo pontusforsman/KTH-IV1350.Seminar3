@@ -75,7 +75,7 @@ public class SaleTest {
         ItemDTO testItem = new ItemDTO("test1", "Test Item", "Test Description", 100.0, 0.0);
         sale.addItem(testItem);
         sale.updateQuantity(0);
-        assertEquals(100.0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
+        assertEquals(0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
     }
 
     /**
@@ -107,11 +107,11 @@ public class SaleTest {
     }
 
     @Test
-    public void updateQuantity_shouldReturnNullIfNoItems() {
+    public void updateQuantity() {
         Sale sale = new Sale(new CashRegister());
         ItemDTO testItem = new ItemDTO("test1", "Test Item", "Test Description", 100.0, 0.0);
         sale.addItem(testItem);
         sale.updateQuantity(0);
-        assertEquals(100.0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
+        assertEquals(0, sale.getTotalCost().getValue(), 0.001, "Total should not change after adding zero quantity.");
     }
 } 

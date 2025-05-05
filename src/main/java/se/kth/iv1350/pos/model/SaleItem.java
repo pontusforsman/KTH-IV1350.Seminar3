@@ -28,6 +28,13 @@ class SaleItem {
     }
 
     /**
+     * Increments the quantity of this item in the sale by 1.
+     */
+    void incrementQuantity() {
+        this.quantity++;
+    }
+
+    /**
      * Gets the item data.
      *
      * @return The {@link ItemDTO} for this sale item.
