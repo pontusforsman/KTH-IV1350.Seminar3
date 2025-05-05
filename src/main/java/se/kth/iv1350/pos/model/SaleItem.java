@@ -6,7 +6,7 @@ import se.kth.iv1350.pos.integration.ItemDTO;
  * Represents an item in a <code>Sale</code>, including its quantity and price calculations.
  * Used internally by {@link Sale} and converted to {@link SaleItemDTO} for transfer between layers.
  */
-public class SaleItem {
+class SaleItem {
     private final ItemDTO item;
     private int quantity;
 
@@ -32,7 +32,7 @@ public class SaleItem {
      *
      * @return The {@link ItemDTO} for this sale item.
      */
-    public ItemDTO getItem() {
+    ItemDTO getItem() {
         return item;
     }
 
@@ -41,7 +41,7 @@ public class SaleItem {
      *
      * @return The quantity.
      */
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 
@@ -50,7 +50,7 @@ public class SaleItem {
      *
      * @return The total amount for this item line.
      */
-    public Amount getLineTotal() {
+    Amount getLineTotal() {
         double itemPrice = item.price();
         return Amount.of(itemPrice * quantity);
     }
@@ -60,7 +60,7 @@ public class SaleItem {
      *
      * @return The VAT amount for this item line.
      */
-    public Amount getLineTotalVat() {
+    Amount getLineTotalVat() {
         double itemPrice = item.price();
         double vatRate = item.vatRate();
         return Amount.of(itemPrice * vatRate * quantity / (1 + vatRate)); // Extract VAT from VAT-included price
@@ -71,7 +71,7 @@ public class SaleItem {
      *
      * @return The {@link SaleItemDTO} representing this item.
      */
-    public SaleItemDTO toDTO() {
+    SaleItemDTO toDTO() {
         return new SaleItemDTO(item, quantity, getLineTotal(), getLineTotalVat());
     }
 } 

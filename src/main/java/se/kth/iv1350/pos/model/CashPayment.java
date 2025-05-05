@@ -4,7 +4,7 @@ package se.kth.iv1350.pos.model;
  * Represents a <code>CashPayment</code> made by a customer.
  * Used in the payment process of a <code>Sale</code>.
  */
-public class CashPayment {
+class CashPayment {
     private Amount amountPaid;
 
     /**
@@ -12,7 +12,7 @@ public class CashPayment {
      *
      * @param amountPaid The amount of money paid.
      */
-    public CashPayment(Amount amountPaid) {
+    CashPayment(Amount amountPaid) {
         this.amountPaid = amountPaid;
     }
 
@@ -21,7 +21,7 @@ public class CashPayment {
      *
      * @return The amount paid, or null if the payment was invalid.
      */
-    public Amount getAmountPaid() {
+    Amount getAmountPaid() {
         return amountPaid;
     }
 
@@ -32,7 +32,7 @@ public class CashPayment {
      *
      * @param sale The sale for which payment is being made.
      */
-    public void calculateTotalCost(Sale sale) {
+    void calculateTotalCost(Sale sale) {
         if (amountPaid == null) {
             return;
         }

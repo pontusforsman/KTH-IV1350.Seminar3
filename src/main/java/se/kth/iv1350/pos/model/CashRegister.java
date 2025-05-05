@@ -22,7 +22,7 @@ public class CashRegister {
      *
      * @return The current balance.
      */
-    public Amount getBalance() {
+    Amount getBalance() {
         return balance;
     }
 
@@ -31,7 +31,7 @@ public class CashRegister {
      *
      * @param amount The amount to add to the balance.
      */
-    public void updateBalance(Amount amount) {
+    void updateBalance(Amount amount) {
         balance = balance.add(amount);
     }
 } 
