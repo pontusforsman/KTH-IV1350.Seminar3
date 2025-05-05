@@ -140,7 +140,6 @@ public class View {
 
     /**
      * Formats the amount to a string with the format "0:00 SEK".
-     * Note: The colon is used instead of a decimal point to match assignment requirements.
      *
      * @param amount The amount to format.
      * @return The formatted string.
@@ -153,7 +152,6 @@ public class View {
 
     /**
      * Formats the price to a string with the format "0:00".
-     * Note: The colon is used instead of a decimal point to match assignment requirements.
      *
      * @param price The price to format.
      * @return The formatted string.
