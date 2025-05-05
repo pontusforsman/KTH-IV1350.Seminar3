@@ -4,17 +4,8 @@ import se.kth.iv1350.pos.integration.*;
 import se.kth.iv1350.pos.model.*;
 
 /**
- * The {@link Controller} handles all calls to the model layer and coordinates the sale process.
+ * The  <code>Controller</code> handles all calls to the model layer and coordinates the sale process.
  * It acts as the only entry point from the view to the model, ensuring low coupling between layers.
- * <p>
- * <b>Call order:</b> The following sequence must be followed:
- * <ol>
- *   <li>startSale()</li>
- *   <li>enterItem()/enterQuantity() (repeat as needed)</li>
- *   <li>endSale()</li>
- *   <li>enterPayment()</li>
- * </ol>
- * If a method is called out of order (e.g., before startSale()), it will return null or do nothing.
  */
 public class Controller {
     private final InventoryRegistry inventoryRegistry;
@@ -24,7 +15,7 @@ public class Controller {
     private Sale currentSale;
 
     /**
-     * Creates a new <code>Controller</code> instance, with the given {@link RegistryCreator}, {@link Printer}.
+     * Creates a new <code>Controller</code> instance, with the given {@link RegistryCreator} and {@link Printer}.
      * Also, instantiates the {@link CashRegister}.
      *
      * @param registryCreator Used to get access to external systems.
@@ -52,7 +43,7 @@ public class Controller {
      *
      * @param itemID The <code>String</code> ID of the item to add.
      * @return Information about the added item as a {@link SaleItemDTO},
-     * or <code>null</code> if the item was not found or no sale is started.
+     * or <code>null</code> if the item was not found or no <code>Sale</code> is started.
      */
     public SaleItemDTO enterItem(String itemID) {
         if (currentSale == null) {
@@ -111,6 +102,9 @@ public class Controller {
         return change;
     }
 
+    /**
+     * Updates external systems.
+     */
     private void updateRegistries() {
         accountingRegistry.updateAccounting(currentSale.toDTO());
         inventoryRegistry.updateInventory(currentSale.toDTO());

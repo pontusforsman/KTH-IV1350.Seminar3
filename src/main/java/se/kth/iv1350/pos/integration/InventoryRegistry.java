@@ -73,6 +73,7 @@ public class InventoryRegistry {
 
     /**
      * Represents a database item, including its ID, name, description, price, VAT rate, and quantity.
+     * Can not be seen by other classes.
      */
     private static final class ItemData {
         private final String itemID;
@@ -81,15 +82,6 @@ public class InventoryRegistry {
         private final double price;
         private final double vatRate;
         private int quantity;
-
-        private ItemData(String itemID, String name, String description, double price, double vatRate) {
-            this.itemID = itemID;
-            this.name = name;
-            this.description = description;
-            this.price = price;
-            this.vatRate = vatRate;
-            this.quantity = 0;
-        }
 
         private ItemData(String itemID, String name, String description, double price, double vatRate, int quantity) {
             this.itemID = itemID;
@@ -106,6 +98,10 @@ public class InventoryRegistry {
 
         void updateQuantity(int quantity) {
             this.quantity = quantity;
+        }
+
+        public int quantity() {
+            return quantity;
         }
     }
 
