@@ -22,7 +22,7 @@ public class CashRegister {
      *
      * @return The current balance.
      */
-    Amount getBalance() {
+    public Amount getBalance() {
         return balance;
     }
 

@@ -77,7 +77,6 @@ public class Amount {
         return new Amount(this.value.multiply(new BigDecimal(multiplier)));
     }
 
-
     /**
      * Custom <code>toString</code> method to display the <code>Amount</code>.
      *
@@ -87,6 +86,4 @@ public class Amount {
     public String toString() {
         return String.format("%.2f %s", this.value, CURRENCY);
     }
-
-
 } 

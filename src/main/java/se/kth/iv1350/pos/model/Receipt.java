@@ -36,13 +36,11 @@ public class Receipt {
      */
     public String createReceiptString() {
         StringBuilder builder = new StringBuilder();
-
         appendReceiptHeader(builder);
         appendSaleItems(builder);
         appendReceiptTotal(builder);
         appendPaymentInfo(builder);
         appendReceiptFooter(builder);
-
         return builder.toString();
     }
 
@@ -54,13 +52,11 @@ public class Receipt {
 
     private void appendSaleItems(StringBuilder builder) {
         Map<String, SaleItem> items = sale.getItems();
-
         for (SaleItem item : items.values()) {
             ItemDTO itemInfo = item.getItem();
             int quantity = item.getQuantity();
             double price = itemInfo.price();
             Amount lineTotal = item.getLineTotal();
-
             appendLine(builder, itemInfo.name() + " " + quantity + " x " + formatPrice(price) + " " + formatAmount(lineTotal));
         }
         endSection(builder);

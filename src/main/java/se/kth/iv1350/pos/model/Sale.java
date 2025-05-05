@@ -43,9 +43,7 @@ public class Sale {
         } else {
             items.put(item.id(), new SaleItem(item, 1));
         }
-
         updateRunningTotal();
-
         return new SaleItemDTO(item, items.get(item.id()).getQuantity(), total, totalVat);
     }
 
@@ -73,16 +71,6 @@ public class Sale {
         return new SaleItemDTO(lastEntry.getValue().getItem(), lastEntry.getValue().getQuantity(), total, totalVat);
     }
 
-    private void updateRunningTotal() {
-        total = Amount.zero();
-        totalVat = Amount.zero();
-
-        for (SaleItem item : items.values()) {
-            total = total.add(item.getLineTotal());
-            totalVat = totalVat.add(item.getLineTotalVat());
-        }
-    }
-
     /**
      * Completes the <code>Sale</code> and returns the total cost.
      *
@@ -105,7 +93,6 @@ public class Sale {
         CashPayment cashPayment = new CashPayment(amountPaid);
         cashPayment.calculateTotalCost(this);
         cashRegister.updateBalance(cashPayment.getAmountPaid());
-
         Amount change = amountPaid.subtract(total);
         receipt = new Receipt(this, amountPaid, change);
         return change;
@@ -139,6 +126,16 @@ public class Sale {
     }
 
     /**
+     * Creates a {@link SaleDTO} representing this sale's data for transfer between layers.
+     *
+     * @return a new <code>SaleDTO</code> with all items, total, and VAT.
+     */
+    public SaleDTO toDTO() {
+        List<SaleItemDTO> itemDTOs = items.values().stream().map(SaleItem::toDTO).toList();
+        return new SaleDTO(itemDTOs, total, totalVat);
+    }
+
+    /**
      * Gets all items in this sale.
      *
      * @return An unmodifiable map of item IDs to {@link SaleItem}.
@@ -147,14 +144,12 @@ public class Sale {
         return Collections.unmodifiableMap(items);
     }
 
-    /**
-     * Creates a {@link SaleDTO} representing this sale's data for transfer between layers.
-     *
-     * @return a new <code>SaleDTO</code> with all items, total, and VAT.
-     */
-    public SaleDTO toDTO() {
-        List<SaleItemDTO> itemDTOs = items.values().stream().map(SaleItem::toDTO).toList();
-
-        return new SaleDTO(itemDTOs, total, totalVat);
+    private void updateRunningTotal() {
+        total = Amount.zero();
+        totalVat = Amount.zero();
+        for (SaleItem item : items.values()) {
+            total = total.add(item.getLineTotal());
+            totalVat = totalVat.add(item.getLineTotalVat());
+        }
     }
 } 
