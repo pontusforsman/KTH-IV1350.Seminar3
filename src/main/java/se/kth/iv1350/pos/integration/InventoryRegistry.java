@@ -96,7 +96,7 @@ public class InventoryRegistry {
             return new ItemDTO(itemID, name, description, price, vatRate);
         }
 
-        void updateQuantity(int quantity) {
+        private void updateQuantity(int quantity) {
             this.quantity = quantity;
         }
 
