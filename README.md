@@ -12,7 +12,7 @@ Seminar 3 builds upon the work from previous seminars:
   
 The implementation in Seminar 3 is based on the analysis and design artifacts produced in those earlier seminars.
 
-### Intended Learning Outcomes
+### Project Goal
 - Practice translating a design model to source code.
 - Practice writing unit tests.
 - Apply and discuss established guidelines for object-oriented programming.
