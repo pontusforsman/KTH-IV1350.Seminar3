@@ -9,6 +9,7 @@ This project was developed for Seminar 3: Implementation in the course [Object-O
 Seminar 3 builds upon the work from previous seminars:
 - **Seminar 1:** Analysis – requirements and use case analysis
 - **Seminar 2:** Design – system and class design
+  
 The implementation in Seminar 3 is based on the analysis and design artifacts produced in those earlier seminars.
 
 ### Intended Learning Outcomes
