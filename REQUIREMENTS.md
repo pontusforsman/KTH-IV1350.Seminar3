@@ -88,3 +88,7 @@ contains the following information.
   percentage is zero if there’s no discount.
 
 ---
+
+Architectural requirements: 
+Model-View-Controller
+Layered Architecture

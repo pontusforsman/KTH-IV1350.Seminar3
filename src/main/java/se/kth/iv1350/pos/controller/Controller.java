@@ -1,7 +1,15 @@
 package se.kth.iv1350.pos.controller;
 
-import se.kth.iv1350.pos.integration.*;
-import se.kth.iv1350.pos.model.*;
+import se.kth.iv1350.pos.integration.AccountingRegistry;
+import se.kth.iv1350.pos.integration.InventoryRegistry;
+import se.kth.iv1350.pos.integration.ItemDTO;
+import se.kth.iv1350.pos.integration.Printer;
+import se.kth.iv1350.pos.integration.RegistryCreator;
+import se.kth.iv1350.pos.model.Amount;
+import se.kth.iv1350.pos.model.CashRegister;
+import se.kth.iv1350.pos.model.Receipt;
+import se.kth.iv1350.pos.model.Sale;
+import se.kth.iv1350.pos.model.SaleItemDTO;
 
 /**
  * The  <code>Controller</code> handles all calls to the model layer and coordinates the sale process.
